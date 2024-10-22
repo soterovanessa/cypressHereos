@@ -77,8 +77,29 @@ Cypress.Commands.add(
       cy.get(selectorsList.selectImage).attachFile("avatar.jpeg");
       cy.get(selectorsList.button).eq(2).click();
       cy.contains("Vanessa").should("be.visible");
+
+      //Cria outro herói
+
+      cy.visit("/new");
+      cy.get(selectorsList.button).eq(0).click();
+      cy.get(selectorsList.fieldName).type("Teste");
+      cy.get(selectorsList.fieldFans).type("25");
+      cy.get(selectorsList.fieldPrice).type("30");
+      cy.get(selectorsList.fieldSaves).type("98");
+      cy.get(selectorsList.powerSelect).select("Super Strength");
+      cy.get(selectorsList.selectImage).attachFile("teste.jpg");
+      cy.get(selectorsList.button).eq(2).click();
+      cy.visit("/heroes");
+      cy.contains("Teste").should("be.visible");
     };
 
     newHero();
   }
 );
+
+Cypress.Commands.add("removeHero", () => {
+  const removeHero = () => {
+    cy.get();
+  };
+  removeHero();
+});
