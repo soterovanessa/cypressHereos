@@ -25,7 +25,9 @@ Cypress.Commands.add(
       cy.visit("/heroes");
       cy.get(selectorsList.button).eq(0).click();
       cy.get(selectorsList.inputEmail).should("be.visible").type(user);
-      cy.get(selectorsList.inputPassword).should("be.visible").type(password);
+      cy.get(selectorsList.inputPassword)
+        .should("be.visible")
+        .type(password, { log: false });
       cy.get(selectorsList.buttonSignIn).should("be.visible").click();
     };
 
@@ -43,7 +45,7 @@ Cypress.Commands.add(
       cy.visit("/");
       cy.get(selectorsList.buttonLogin).eq(0).click();
       cy.get(selectorsList.inputEmail).type(user);
-      cy.get(selectorsList.inputPassword).type(password);
+      cy.get(selectorsList.inputPassword).type(password, { log: false });
       cy.get(selectorsList.buttonSignIn).click();
       cy.contains("Invalid email or password");
     };
@@ -68,7 +70,9 @@ Cypress.Commands.add(
       cy.visit("/heroes");
       cy.get(selectorsList.button).eq(0).click();
       cy.get(selectorsList.inputEmail).should("be.visible").type(user);
-      cy.get(selectorsList.inputPassword).should("be.visible").type(password);
+      cy.get(selectorsList.inputPassword)
+        .should("be.visible")
+        .type(password, { log: false });
       cy.get(selectorsList.buttonSignIn).should("be.visible").click();
     };
 
