@@ -12,7 +12,7 @@ module.exports = defineConfig({
     user_password: "test123",
     name_fail: "testeteste@email.com",
     password_fail: "123456",
-    user_adm: "adm@test.com",
+    user_adm: "admin@test.com",
     password_adm: "test123",
   },
 });
