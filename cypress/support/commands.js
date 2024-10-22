@@ -78,8 +78,6 @@ Cypress.Commands.add(
 
 Cypress.Commands.add("newHero", () => {
   const newHero = () => {
-    cy.visit("/");
-
     cy.get(selectorsList.button).eq(0).click();
     cy.get(selectorsList.fieldName).type("Vanessa");
     cy.get(selectorsList.fieldFans).type("5");
@@ -107,7 +105,6 @@ Cypress.Commands.add("removeHero", () => {
     cy.visit("/heroes");
     cy.contains("Teste").should("be.visible");
 
-    //cy.visit("/heroes");
     cy.get(selectorsList.buttonTrash).eq(7).click();
     cy.get(selectorsList.buttonYes).should("be.visible").eq(1).click();
   };
