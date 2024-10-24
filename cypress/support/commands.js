@@ -15,6 +15,7 @@ export const selectorsList = {
   buttonYes: "button.text-center.text-white",
   buttonLike: "[data-cy='like']",
   buttonMoney: "[data-cy='money']",
+  buttonEdit: "button[data-cy='pencil']",
 };
 
 Cypress.Commands.add(
@@ -134,4 +135,19 @@ Cypress.Commands.add("moneyHero", () => {
     });
   };
   moneyHero();
+});
+
+Cypress.Commands.add("editHero", () => {
+  const editHero = () => {
+    cy.get(selectorsList.buttonEdit).qe(3).click();
+    cy.get(selectorsList.fieldName).clear().value("Cyonic Edit");
+    cy.get(selectorsList.fieldPrice).clear().value("79");
+    cy.get(selectorsList.fieldPrice).clear().valuepe("5");
+    cy.get(selectorsList.fieldSaves).clear().type("25");
+    cy.get(selectorsList.powerSelect).clear().select("Flying");
+    cy.get(selectorsList.selectImage).attachFile("edit.jpg");
+    cy.get(selectorsList.button).eq(2).click();
+    cy.contains("Cyonic Edit").should("be.visible");
+  };
+  editHero();
 });
