@@ -139,15 +139,15 @@ Cypress.Commands.add("moneyHero", () => {
 
 Cypress.Commands.add("editHero", () => {
   const editHero = () => {
-    cy.get(selectorsList.buttonEdit).qe(3).click();
-    cy.get(selectorsList.fieldName).clear().value("Cyonic Edit");
-    cy.get(selectorsList.fieldPrice).clear().value("79");
-    cy.get(selectorsList.fieldPrice).clear().valuepe("5");
+    cy.get(selectorsList.buttonEdit).eq(2).click();
+    cy.get(selectorsList.fieldName).clear().type("Wrap Edit");
+    cy.get(selectorsList.fieldPrice).clear().type("79");
+    cy.get(selectorsList.fieldPrice).clear().type("5");
     cy.get(selectorsList.fieldSaves).clear().type("25");
-    cy.get(selectorsList.powerSelect).clear().select("Flying");
+    cy.get(selectorsList.powerSelect).select("Flying");
     cy.get(selectorsList.selectImage).attachFile("edit.jpg");
     cy.get(selectorsList.button).eq(2).click();
-    cy.contains("Cyonic Edit").should("be.visible");
+    cy.contains("Wrap Edit").should("be.visible");
   };
   editHero();
 });
