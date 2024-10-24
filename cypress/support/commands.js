@@ -13,6 +13,7 @@ export const selectorsList = {
   selectImage: '[data-cy="avatarFile"]',
   buttonTrash: '[data-cy="trash"]',
   buttonYes: "button.text-center.text-white",
+  buttonLike: "[data-cy='like']",
 };
 
 Cypress.Commands.add(
@@ -113,4 +114,13 @@ Cypress.Commands.add("removeHero", () => {
     cy.get(selectorsList.buttonYes).should("be.visible").eq(1).click();
   };
   removeHero();
+});
+
+Cypress.Commands.add("likeHero", () => {
+  const likeHero = () => {
+    cy.get(selectorsList.buttonLike).each(($btn) => {
+      cy.wrap($btn).click();
+    });
+  };
+  likeHero();
 });
