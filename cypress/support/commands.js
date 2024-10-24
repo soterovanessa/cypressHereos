@@ -14,6 +14,7 @@ export const selectorsList = {
   buttonTrash: '[data-cy="trash"]',
   buttonYes: "button.text-center.text-white",
   buttonLike: "[data-cy='like']",
+  buttonMoney: "[data-cy='money']",
 };
 
 Cypress.Commands.add(
@@ -123,4 +124,14 @@ Cypress.Commands.add("likeHero", () => {
     });
   };
   likeHero();
+});
+
+Cypress.Commands.add("moneyHero", () => {
+  const moneyHero = () => {
+    cy.get(selectorsList.buttonMoney).each(($btn) => {
+      cy.wrap($btn).click();
+      cy.get(selectorsList.buttonYes).should("be.visible").click();
+    });
+  };
+  moneyHero();
 });
